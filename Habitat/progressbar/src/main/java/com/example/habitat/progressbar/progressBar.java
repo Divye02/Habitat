@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import java.util.*;
 
@@ -28,6 +29,12 @@ public class progressBar extends Activity {
     private int mProgressStatus2 = 0;
     private int mProgressStatus3 = 0;
     private int incrementAmount = 1;
+    private android.widget.TextView days_total;
+    private int no_days_total=0;
+    private android.widget.TextView days_progress;
+    private int no_days_progress=0;
+    private android.widget.TextView days_skipped;
+    private int no_days_skipped=0;
     private ProgressBar mProgress;
     private ProgressBar mProgress2;
     private ProgressBar mProgress3;
@@ -39,6 +46,9 @@ public class progressBar extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_progress_bar);
+        days_total = (TextView) findViewById(R.id.days_total);
+        days_progress = (TextView) findViewById(R.id.days_progress);
+        days_skipped = (TextView) findViewById(R.id.days_skipped);
         btn = (Button) findViewById(R.id.button);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,18 +60,20 @@ public class progressBar extends Activity {
                     public void run() {
                         Date current_time= new Date();
                         mProgressStatus3+=incrementAmount;
+                        no_days_total++;
                         mHandler.post(new Runnable() {
                             public void run() {
                                 mProgress3.setProgress(mProgressStatus3);
+                                days_total.setText("" + no_days_total);
                             }
                         });
                         if(Math.abs(last_recorded_time.getSeconds() - current_time.getSeconds()) >= 5){
                         mProgressStatus2+=incrementAmount;
-
+                        no_days_skipped++;
                             mHandler.post(new Runnable() {
                                 public void run() {
-                                    mProgress.setProgress(mProgressStatus);
                                     mProgress2.setProgress(mProgressStatus2);
+                                    days_skipped.setText("" + no_days_skipped);
                                 }
                             });
                             last_recorded_time =  current_time;
@@ -70,9 +82,11 @@ public class progressBar extends Activity {
                          else{//if(Math.abs(last_recorded_time.getMinutes() - current_time.getMinutes()) >= 1 || mProgressStatus==0) {
 
                            mProgressStatus+=incrementAmount;
+                           no_days_progress++;
                             mHandler.post(new Runnable() {
                                 public void run() {
                                     mProgress.setProgress(mProgressStatus);
+                                    days_progress.setText("" + no_days_progress);
                                 }
                             });
                             last_recorded_time =  current_time;

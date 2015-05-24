@@ -53,22 +53,45 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Number of days passed = "
-        android:id="@+id/textView"
-        android:layout_marginTop="33dp"
-        android:layout_below="@+id/button"
-        android:layout_alignRight="@+id/button"
-        android:layout_alignEnd="@+id/button" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="0"
+        android:id="@+id/days_total"
+        android:layout_marginBottom="76dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Number of days "
-        android:id="@+id/textView2"
-        android:layout_below="@+id/textView"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView"
-        android:layout_marginTop="17dp" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="0"
+        android:id="@+id/days_progress"
+        android:layout_above="@+id/days_total"
+        android:layout_alignLeft="@+id/days_skipped"
+        android:layout_alignStart="@+id/days_skipped" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="0"
+        android:id="@+id/days_skipped"
+        android:layout_above="@+id/days_total"
+        android:layout_alignLeft="@+id/days_total"
+        android:layout_alignStart="@+id/days_total"
+        android:layout_marginBottom="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello"
+        android:id="@+id/textView4"
+        android:layout_above="@+id/button"
+        android:layout_alignLeft="@+id/days_skipped"
+        android:layout_alignStart="@+id/days_skipped"
+        android:layout_marginBottom="77dp"
+        android:translationZ="100dp"
+        android:ellipsize="middle" />
 
 
 </RelativeLayout>
