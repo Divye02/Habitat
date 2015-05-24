@@ -39,7 +39,7 @@ public class progressBar extends Activity {
     private ProgressBar mProgress2;
     private ProgressBar mProgress3;
     private Handler mHandler = new Handler();
-    private android.widget.Button btn;
+    private ImageButton btn;
     private Date last_recorded_time = new Date();
 
     @Override
@@ -49,7 +49,7 @@ public class progressBar extends Activity {
         days_total = (TextView) findViewById(R.id.days_total);
         days_progress = (TextView) findViewById(R.id.days_progress);
         days_skipped = (TextView) findViewById(R.id.days_skipped);
-        btn = (Button) findViewById(R.id.button);
+        btn = (ImageButton) findViewById(R.id.button);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
