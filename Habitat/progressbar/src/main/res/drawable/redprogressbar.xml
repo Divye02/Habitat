@@ -3,14 +3,16 @@
     android:fromDegrees="270"
     android:toDegrees="270">
     <shape
-        android:innerRadiusRatio="2.53"
+        android:innerRadiusRatio="2.89"
         android:shape="ring"
         android:thickness="15dp"
+        android:text="Hello bra"
         android:useLevel="true"><!-- this line fixes the issue for lollipop api 21 -->
+
         <gradient
             android:angle="0"
-            android:endColor="#7AE339"
-            android:startColor="#7AE339"
+            android:endColor="#ff4444"
+            android:startColor="#ff4444"
             android:type="sweep"
             android:useLevel="false" />
     </shape>
